@@ -1,9 +1,10 @@
 import customtkinter as ctk
 from tkinter import messagebox
+import subprocess  # To open Home.py
 
 # Theme settings
 ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")  # You can change to "green", "dark-blue", etc.
+ctk.set_default_color_theme("blue")  # Can be changed to "green", "dark-blue", etc.
 
 # Main App Window
 app = ctk.CTk()
@@ -51,6 +52,8 @@ def login():
     password = password_entry.get()
     if username == "admin" and password == "admin":
         messagebox.showinfo("Login Successful", "Welcome to the Library!")
+        app.destroy()  # Close login window
+        subprocess.Popen(["python", "D:\PYTHON\LMS 2.0\src\Home.py"])  # Open Home.py
     else:
         messagebox.showerror("Login Failed", "Invalid credentials.")
 
