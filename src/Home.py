@@ -2,6 +2,8 @@ import tkinter as tk
 import customtkinter as ctk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
+from issue import show_issue_book_page
+
 
 # Theme settings
 ctk.set_appearance_mode("dark")
@@ -16,6 +18,9 @@ root.geometry("1100x650")
 sidebar = ctk.CTkFrame(root, width=200, corner_radius=0)
 sidebar.pack(side="left", fill="y")
 
+main_content_frame = ctk.CTkFrame(root)
+main_content_frame.pack(side="right", fill="both", expand=True)
+
 title_label = ctk.CTkLabel(sidebar, text="📚 Library LMS", font=("Arial", 20, "bold"))
 title_label.pack(pady=20)
 
@@ -29,8 +34,18 @@ buttons = [
 ]
 
 for btn in buttons:
-    b = ctk.CTkButton(sidebar, text=btn, font=("Arial", 14), height=40)
-    b.pack(pady=5, padx=20, fill="x")
+    if btn == "Issue Book":
+        issue_btn = ctk.CTkButton(
+            sidebar, 
+            text="Issue Book",
+            font=("Arial", 14),
+            height=40,
+            command=show_issue_book_page  # no need to pass main_content_frame
+        )
+        issue_btn.pack(pady=5, padx=20, fill="x")
+    else:
+            b = ctk.CTkButton(sidebar, text=btn, font=("Arial", 14), height=40)
+            b.pack(pady=5, padx=20, fill="x")
 
 # ---------------- Main Content ----------------
 main_frame = ctk.CTkFrame(root, fg_color="#1E1E1E")
