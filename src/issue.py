@@ -474,3 +474,4 @@ if __name__ == "__main__":
     # Open the Issue Book window and enter the loop
     show_issue_book_page()
     root.mainloop()
+

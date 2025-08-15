@@ -1,5 +1,5 @@
-Andy-Add And return page
-Bharghav-issue and view members page
+Andy-Adding scan page and adding finishing touches 
+Bharghav-view members page
 
 work left:-
 Database
