@@ -1,12 +1,12 @@
 import customtkinter as ctk
 from tkinter import messagebox
-import subprocess  # To open Home.py
+from Home import show_home_page  # Import your Home page function
 
-# Theme settings
+# ---------- Theme ----------
 ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("blue")  # Can be changed to "green", "dark-blue", etc.
+ctk.set_default_color_theme("blue")
 
-# Main App Window
+# ---------- Login Window ----------
 app = ctk.CTk()
 app.title("LMS - Login")
 app.geometry("500x400")
@@ -21,7 +21,7 @@ title_label = ctk.CTkLabel(
 )
 title_label.pack(pady=30)
 
-# Frame for form
+# Frame for login form
 login_frame = ctk.CTkFrame(app, corner_radius=15)
 login_frame.pack(pady=10, padx=20, fill="both", expand=True)
 
@@ -46,14 +46,14 @@ password_entry = ctk.CTkEntry(
 )
 password_entry.pack(pady=15)
 
-# Login Button Action
+# ---------- Login Action ----------
 def login():
     username = username_entry.get()
     password = password_entry.get()
     if username == "admin" and password == "admin":
         messagebox.showinfo("Login Successful", "Welcome to the Library!")
         app.destroy()  # Close login window
-        subprocess.Popen(["python", "D:\PYTHON\LMS 2.0\src\Home.py"])  # Open Home.py
+        show_home_page()  # Open Home page directly
     else:
         messagebox.showerror("Login Failed", "Invalid credentials.")
 
@@ -79,4 +79,5 @@ forgot_pass = ctk.CTkLabel(
 )
 forgot_pass.pack()
 
+# ---------- Run App ----------
 app.mainloop()
