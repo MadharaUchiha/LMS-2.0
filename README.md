@@ -3,6 +3,8 @@ Andy-Adding..scan page and adding finishing touches
 work left:-
 Database
 Category update
+Library Bug fix
+Proper database 
 
 
 # Library Management System — Quick Setup
