@@ -1,0 +1,1 @@
+#TODO : add cod to generate QR code
